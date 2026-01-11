@@ -6,111 +6,232 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
+    :root {
+      --bg: #f6f1ff;
+      --card: #fde3df;
+      --card-soft: #fdeceb;
+      --accent: #7a5cff;
+      --text: #2b2b2b;
+      --muted: #6f6f85;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      padding: 60px 20px;
+      background: var(--bg);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial;
-      max-width: 860px;
-      margin: 70px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      background: linear-gradient(
-        135deg,
-        #f8f4ff 0%,
-        #f2ecff 45%,
-        #ede6ff 100%
-      );
-      color: #2d2d2d;
+      color: var(--text);
     }
 
-    h1 {
-      font-size: 2.6rem;
-      margin-bottom: 0.2rem;
-      color: #5b3cc4;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.12);
     }
 
-    h2 {
-      margin-top: 2.2rem;
-      color: #3f3a66;
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
     }
 
-    .subtitle {
-      font-size: 1.05rem;
-      color: #6b6b85;
-      margin-top: 0;
+    .nav h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      margin: 0;
     }
 
-    p {
-      font-size: 1.02rem;
-    }
-
-    a {
-      color: #6a5cff;
+    .nav a {
+      margin-left: 20px;
       text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1.4fr;
+      gap: 22px;
+    }
+
+    .left {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 22px;
+    }
+
+    .right {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 22px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--card-soft);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .hero {
+      background: var(--card);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .hero span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 90%;
+      line-height: 1.6;
+    }
+
+    .about p {
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* PROJECTS */
+    .projects h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .project {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.95rem;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f9b8aa;
+    }
+
+    .contact h3 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      color: #000;
       font-weight: 500;
     }
 
-    a:hover {
-      color: #4b3bd6;
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .section {
-      margin-top: 2.5rem;
-    }
-
+    /* FOOTER */
     .footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #7a7a90;
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <div class="nav">
+      <h1>EMMA ZHANG</h1>
+      <div>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
 
-  <h1>Emma Zhang</h1>
-  <p class="subtitle">
-    B.S. Computer Science · University of Wisconsin–Madison
-  </p>
+    <div class="grid">
+      <!-- LEFT -->
+      <div class="left">
+        <div class="card hero">
+          <h2>
+            Undergraduate <br>
+            <span>Computer Science</span> Student
+          </h2>
+          <p>
+            Interested in robotics, sensing systems, and applied machine learning.
+            I enjoy building practical systems and iterating through real-world constraints.
+          </p>
+        </div>
 
-  <div class="section">
-    <p>
-      I am an undergraduate Computer Science student at the University of Wisconsin–Madison.
-      My interests include robotics, sensing systems, and applied machine learning.
-      I enjoy building end-to-end systems, from prototyping to evaluation.
-    </p>
+        <div class="card about">
+          <p>
+            I am a B.S. Computer Science student at the University of Wisconsin–Madison.
+            My interests include robotics, embedded systems, and ML for real-world applications.
+            I enjoy end-to-end work from prototyping to evaluation.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right">
+        <div class="card projects">
+          <h3>Projects</h3>
+
+          <div class="project">
+            <span>CanSat Mission Prototype</span>
+            <span>↗</span>
+          </div>
+
+          <div class="project">
+            <span>VEX Robotics</span>
+            <span>↗</span>
+          </div>
+
+          <div class="project">
+            <span>STEM Tutoring</span>
+            <span>↗</span>
+          </div>
+        </div>
+
+        <div class="card contact">
+          <h3>Contact me</h3>
+          <a href="mailto:lzhang772@wisc.edu">
+            lzhang772@wisc.edu →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>© 2026 Emma Zhang</span>
+      <span>GitHub Pages</span>
+    </div>
   </div>
-
-  <div class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <b>VEX Robotics</b><br>
-        Led mechanical–software integration and iterated designs based on competition constraints.
-      </li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Contact</h2>
-    <p>
-      Email:
-      <a href="mailto:YOUR_EMAIL@wisc.edu">YOUR_EMAIL@wisc.edu</a><br>
-      GitHub:
-      <a href="https://github.com/EMMA-1221">github.com/EMMA-1221</a>
-    </p>
-  </div>
-
-  <div class="footer">
-    <p>Last updated: January 2026</p>
-  </div>
-
 </body>
 </html>
