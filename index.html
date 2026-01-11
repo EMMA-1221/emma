@@ -67,7 +67,6 @@
 
     .left {
       display: grid;
-      grid-template-rows: auto auto;
       gap: 22px;
     }
 
@@ -86,6 +85,14 @@
 
     .hero {
       background: var(--card);
+      overflow: hidden;
+    }
+
+    .hero-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
     }
 
     .hero h2 {
@@ -100,8 +107,17 @@
 
     .hero p {
       color: var(--muted);
-      max-width: 90%;
       line-height: 1.6;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 18px;
+      flex-shrink: 0;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .about p {
@@ -160,6 +176,11 @@
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .hero-flex {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -178,32 +199,28 @@
     <div class="grid">
       <!-- LEFT -->
       <div class="left">
-        <div class="card hero">
-          <h2>
-            Undergraduate <br>
-            <span>Computer Science</span> Student
-          </h2>
-          <p>
-            Interested in robotics, sensing systems, and applied machine learning.
-            I enjoy building practical systems and iterating through real-world constraints.
-          </p>
+        <div class="card hero hero-flex">
+          <div>
+            <h2>
+              Undergraduate <br>
+              <span>Computer Science</span> Student
+            </h2>
+            <p>
+              Interested in robotics, sensing systems, and applied machine learning.
+              I enjoy building practical systems and iterating through real-world constraints.
+            </p>
+          </div>
+
+          <img src="IMG_2401.jpeg" alt="Emma Zhang" class="profile-pic">
         </div>
 
-        <div class="card hero hero-flex">
-  <div>
-    <h2>
-      Undergraduate <br>
-      <span>Computer Science</span> Student
-    </h2>
-    <p>
-      Interested in robotics, sensing systems, and applied machine learning.
-      I enjoy building practical systems and iterating through real-world constraints.
-    </p>
-  </div>
-
-  <img src="IMG_2401.jpeg" alt="Emma Zhang" class="profile-pic">
-</div>
-
+        <div class="card about">
+          <p>
+            I am a B.S. Computer Science student at the University of Wisconsin–Madison.
+            My interests include robotics, embedded systems, and ML for real-world applications.
+          </p>
+        </div>
+      </div>
 
       <!-- RIGHT -->
       <div class="right">
